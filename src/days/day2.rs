@@ -58,7 +58,7 @@ impl AdventSolution for Day2 {
                 (report.windows(2).all(|x| x[0] < x[1]) ||
                  report.windows(2).all(|x| x[0] > x[1])) &&
                 // adjacent levels differ by at least one and at most three 
-                 report.chunks(2).all(|x| {
+                 report.windows(2).all(|x| {
                     let diff = (x[0] - x[1]).abs();
                     diff > 0 && diff < 4
                  })
@@ -67,7 +67,7 @@ impl AdventSolution for Day2 {
 
         safe_count as u32
     }
-    
+
     fn part2(&self) -> u32 {
         0
     }
